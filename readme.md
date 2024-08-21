@@ -5,7 +5,6 @@ This is imported from https://github.com/ahuigo/deno-fetchx/tree/main/test
     npm install deno-fetchx
 
 ## Usage
-
 ```
   import fetchx from deno-fetchx
 
@@ -20,3 +19,5 @@ This is imported from https://github.com/ahuigo/deno-fetchx/tree/main/test
       mode: "cors",
     }).then((res: Response) => res.json());
 ```
+## Examples
+https://github.com/ahuigo/js-fetchx/blob/main/src/demo/fetch-cors.test.ts
