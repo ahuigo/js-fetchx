@@ -1,6 +1,6 @@
 {
   "name": "deno-fetchx",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "",
   "main": "lib/index.js",
   "files": [
@@ -28,7 +28,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "ts-jest": "^28.0.4",
     "ts-node": "^10.8.1",
-    "typescript": "^4.7.3",
+    "typescript": "^5.0.0",
     "whatwg-fetch": "^3.6.20"
   }
 }
