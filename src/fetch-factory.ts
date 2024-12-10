@@ -75,7 +75,7 @@ class Callable extends Function {
 
 export type FetchTracer = (req: Request) => Promise<any>;
 
-class FetchFactory<T = any> extends Callable {
+class FetchFactoryRaw<T = any> extends Callable {
   #defaultInit: RequestInit = {};
   #responseHandler: ResponseHandler<T>;
   #errorHandler: ErrorHandler;
@@ -111,11 +111,11 @@ class FetchFactory<T = any> extends Callable {
   }
   // with new instance
   withResponseHandler(handler: ResponseHandler<T>) {
-    return new FetchFactoryAlias(this.#defaultInit, handler, this.#errorHandler);
+    return new FetchFactory(this.#defaultInit, handler, this.#errorHandler);
   }
   // with new instance
   withErrorHandler(errHandler: ErrorHandler) {
-    return new FetchFactoryAlias(this.#defaultInit, this.#responseHandler, errHandler);
+    return new FetchFactory(this.#defaultInit, this.#responseHandler, errHandler);
   }
 
   // fetch
@@ -193,13 +193,13 @@ class FetchFactory<T = any> extends Callable {
   }
 }
 
-type FetchFactoryF = FetchFactory & FetchFactory['_call'];
-const FetchFactoryAlias = FetchFactory as new (
-  ...args: ConstructorParameters<typeof FetchFactory>
-) => FetchFactoryF;
+type FetchFactoryCallable = FetchFactoryRaw & FetchFactoryRaw['_call'];
+const FetchFactory = FetchFactoryRaw as new (
+  ...args: ConstructorParameters<typeof FetchFactoryRaw>
+) => FetchFactoryCallable;
 
-export { FetchFactoryAlias as FetchFactory };
-export default FetchFactory as typeof FetchFactoryAlias;
+export { FetchFactory as FetchFactory };
+export default FetchFactory as typeof FetchFactory;
 
 
 export const PolicyDict = {

@@ -1,6 +1,6 @@
 {
   "name": "deno-fetchx",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "",
   "main": "lib/index.js",
   "files": [
@@ -14,7 +14,11 @@
     "lint": "eslint -v src --ext .ts",
     "lintfix": "npx eslint -fix src --ext .ts"
   },
-  "keywords": [],
+  "keywords": [
+    "fetch",
+    "ajax",
+    "cors"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
